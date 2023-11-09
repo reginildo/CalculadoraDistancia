@@ -12,11 +12,11 @@ import javax.swing.text.PlainDocument;
  *
  * @author JETTA
  */
-public class FilterNumbers extends PlainDocument {
+public class FilterNumbersX extends PlainDocument {
 
     @Override
     public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
-        super.insertString(offs, str.replaceAll("[^0-9]", ""), a); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        super.insertString(offs, str.replaceAll("[^0-9.]", ""), a); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
     
     
