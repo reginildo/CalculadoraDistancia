@@ -4,6 +4,7 @@
  */
 package io.github.reginildo.calculadoradistancia;
 
+import java.awt.Graphics2D;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import javax.swing.JOptionPane;
@@ -75,7 +76,7 @@ public class JFrameMain extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jButtonLimpar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelDrawLine = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItemSave = new javax.swing.JMenuItem();
@@ -157,14 +158,14 @@ public class JFrameMain extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelDrawLineLayout = new javax.swing.GroupLayout(jPanelDrawLine);
+        jPanelDrawLine.setLayout(jPanelDrawLineLayout);
+        jPanelDrawLineLayout.setHorizontalGroup(
+            jPanelDrawLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 446, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelDrawLineLayout.setVerticalGroup(
+            jPanelDrawLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 216, Short.MAX_VALUE)
         );
 
@@ -180,7 +181,7 @@ public class JFrameMain extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanelDrawLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
@@ -260,7 +261,7 @@ public class JFrameMain extends javax.swing.JFrame {
                             .addComponent(jLabel8)
                             .addComponent(jTextFieldP2Z, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelDrawLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -342,6 +343,11 @@ public class JFrameMain extends javax.swing.JFrame {
         
         jLabelDistHorizont.setText(String.valueOf(formatter.format(horizonDist) + " metros"));
         jLabelDistVert.setText(String.valueOf(formatter.format(slantDist) + " metros"));
+        Graphics2D d = new Linhas();
+        d.drawLine((int)p1x, (int)p1y, (int)p2x, (int)p2y);
+        
+        jPanelDrawLine.paint(d);
+        jPanelDrawLine.repaint();
     }//GEN-LAST:event_jButtonCalcularActionPerformed
 
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
@@ -367,7 +373,8 @@ public class JFrameMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldP1XActionPerformed
 
     private void jMenuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExitActionPerformed
-        int choose = JOptionPane.showConfirmDialog(null, "Are you sure you want to close the program?");
+        int choose = JOptionPane.showConfirmDialog(
+                null, "Are you sure you want to close the program?");
         if (choose == 0) {
             System.exit(0);            
         }        
@@ -437,7 +444,7 @@ public class JFrameMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemOptions;
     private javax.swing.JMenuItem jMenuItemSave;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanelDrawLine;
     private javax.swing.JTextField jTextFieldP1X;
     private javax.swing.JTextField jTextFieldP1Y;
     private javax.swing.JTextField jTextFieldP1Z;

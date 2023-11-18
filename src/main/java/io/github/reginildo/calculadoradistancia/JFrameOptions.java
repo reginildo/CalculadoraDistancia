@@ -49,7 +49,7 @@ public class JFrameOptions extends javax.swing.JFrame {
 
         jTextField1.setText("jTextField1");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Black", "Blue", "Cyan", "Dark Gray", "Gray", "Green", "Yellow", "Custom...", " " }));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
